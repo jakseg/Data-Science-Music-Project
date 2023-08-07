@@ -18,6 +18,7 @@ pip install ast
 pip install csv
 pip install requests
 pip install avgCalculate
+pip install scrapy
 ```
 
 ## Usage
