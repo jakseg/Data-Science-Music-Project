@@ -84,13 +84,25 @@ date = [2013, 1, 26]
 ### Step 3: Calculate the yearly/ monthly charts and create a CSV file
 
 ### Step 4: Add the duration
-To add the durations, you must first request a Bearer Token with your credentials and insert it here:
-```python
-"Authorization": "Bearer -INSERT YOUR TOKEN HERE-"
+To add the durations, you must first request a Bearer Token with your credentials:
+
+```bash
+curl -X POST "https://accounts.spotify.com/api/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "grant_type=client_credentials&client_id=-INSERT YOUR CLIENT ID HERE-&client_secret=-INSERT YOUR CLIENT SECRET HERE-"
 ```
 Further information: https://developer.spotify.com/documentation/web-api/tutorials/getting-started
 
+Insert your token in the file add_duration.py:
+```python
+"Authorization": "Bearer -INSERT YOUR TOKEN HERE-"
+```
+
 To add the duration to different csv files you'll need to change the parameter "input_file" and "output_file".
+```python
+input_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
+output_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
+```
 
 ### Step 5: Create plots
 
