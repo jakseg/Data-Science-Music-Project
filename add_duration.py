@@ -1,5 +1,7 @@
 """
-Adds duration to each song using the Spotify API
+Adds duration to each song using the Spotify API.
+If it doesn't go through, the Bearer Token needs to be updated or Spotify doesn't know the song by that name. 
+Then it must be adjusted manually in the input file.
 """
 
 import csv
@@ -8,8 +10,7 @@ import os
 
 CURRENT_DIR = os.path.dirname(__file__)
 
-#all_songs_csv = pd.read_csv(os.path.join(CURRENT_DIR, "Data/Top_100_artists_songs_per_year_with_duration.csv"))
-
+#Change the directory to create new files
 input_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year.csv")
 output_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year_with_duration.csv")
 
@@ -20,10 +21,10 @@ def get_song_duration(song_name):
     if song_name in duration_cache:
         return duration_cache[song_name]
     
-    # Spotify API - Insert valid token
+    #Spotify API - Insert valid token
     endpoint = "https://api.spotify.com/v1/search"
     headers = {
-        "Authorization": "Bearer BQDYjc8rRa1OIWiPhxn2ZBwXYxjOP8-gur8SG3PIwC1N7fiixWg0z-tzQDAyJZzyE4aOOJrZeRqqe8871DqKlOu60Su_LMU_mcg07T3B8Ho9yzNjB5g"
+        "Authorization": "Bearer -INSERT YOUR TOKEN HERE-"
     }
     params = {
         "q": song_name,
