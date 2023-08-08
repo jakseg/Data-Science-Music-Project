@@ -12,22 +12,25 @@ CURRENT_DIR = os.path.dirname(__file__)
 big_data = pd.read_csv(os.path.join(CURRENT_DIR, 'Data/Top_artists_weekly_as_Dataframe.csv'))
 
 
-top_100_year_sum_of_ranks = big_data.groupby(['year', 'song', 'artist'])['rank'].sum().reset_index().rename(columns={'rank': 'sum_of_ranks'})
+big_data = big_data[big_data['year'] >= 2005]
 
-top_100_year_count_song_per_year = big_data.groupby(['year', 'song', 'artist'])['rank'].count().reset_index().rename(columns={'rank': 'count_of_weeks'})
+top_100_year_sum_of_ranks = big_data.groupby(['year', 'month', 'song', 'artist'])['rank'].sum().reset_index().rename(columns={'rank': 'sum_of_ranks'})
 
-
-
-top_100_year = top_100_year_sum_of_ranks.merge(top_100_year_count_song_per_year, on = ['year', 'song', 'artist'])
+top_100_year_count_song_per_year = big_data.groupby(['year', 'month', 'song', 'artist'])['rank'].count().reset_index().rename(columns={'rank': 'count_of_weeks'})
 
 
-top_100_year['points'] = (52 - top_100_year['count_of_weeks']) * 101 +  top_100_year['sum_of_ranks']
 
-top_100_year = top_100_year.groupby(['year'], group_keys = False)
+top_100 = top_100_year_sum_of_ranks.merge(top_100_year_count_song_per_year, on = ['year', 'month', 'song', 'artist'])
 
-top_100_year = top_100_year.apply(lambda x: x.sort_values('points').head(100)).reset_index()
 
-top_100_year = top_100_year[['year', 'artist', 'song', 'points']]
+top_100['points'] = (5 - top_100['count_of_weeks']) * 101 +  top_100['sum_of_ranks']
 
-top_100_year.to_csv( os.path.join(CURRENT_DIR,'Data/Top_100_artists_songs_per_year.csv'))
+top_100 = top_100.groupby(['year', 'month'], group_keys = False)
+
+top_100 = top_100.apply(lambda x: x.sort_values('points').head(100)).reset_index()
+
+top_100 = top_100[['year', 'month', 'artist', 'song', 'points']]
+
+top_100.to_csv( os.path.join(CURRENT_DIR,'Data/Top_100_artists_songs_per_year_month.csv'))
+
 

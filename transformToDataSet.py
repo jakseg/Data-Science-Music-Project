@@ -39,15 +39,18 @@ with open(os.path.join(CURRENT_DIR,'Data/topArtists.txt')) as file:
         keys = values_dict.keys()
         
         year = date[0:4]  
+        month = date[5:7]
+        
         
         dates = []
         years = []
+        months = []
         ranks = []
         songs = []
         artists = []
         
     
-        for i in range(100): 
+        for i in range(len(list_values)): 
             
             item = str(list_values[i])
             
@@ -58,6 +61,7 @@ with open(os.path.join(CURRENT_DIR,'Data/topArtists.txt')) as file:
             
             
             years.append(year)
+            months.append(month)
             dates.append(date)
             ranks.append(i+1)
             artists.append(art)
@@ -65,7 +69,7 @@ with open(os.path.join(CURRENT_DIR,'Data/topArtists.txt')) as file:
             
             
             
-        data = {'year' : years, 'date' : dates, 'rank' : ranks, 'artist' : artists, 'song' : songs}
+        data = {'year' : years,'month': months, 'date' : dates, 'rank' : ranks, 'artist' : artists, 'song' : songs}
         
         dataframe = pd.DataFrame.from_dict(data, orient='index').transpose()
         
