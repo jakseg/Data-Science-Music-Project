@@ -80,22 +80,22 @@ billboard_url = "https://www.billboard.com/charts/dance-electronic-songs/"
 date = [2013, 1, 26]
 ```
 
-### Step 3: Restructure scraped dictonary (saved in txt file) into dataframe saved as csv 
+### Step 3: Restructure scraped dictionary (saved in txt file) into dataframe saved as csv 
 
-To make the following steps easier we restructure a scraped dictonary, which includes the Top 100 songs each week of one chart 
-into  a dataframe. \
+To make the following steps easier we restructure a scraped dictionary, which includes the Top 100 songs each week of one chart 
+into  a dataframe.
 
 To do that run
 ```bash 
      transformToDataSet.py 
 ```
-The resulting dataframe includes the following attributes: 
-     - year 
-     - month
-     - date 
-     - rank 
-     - artist 
-     - song 
+The resulting dataframe includes the following attributes: \\
+     - year \\
+     - month \\
+     - date \\
+     - rank \\
+     - artist \\
+     - song \\
 
 ### Step 4: Calculate the yearly/ monthly charts 
 
