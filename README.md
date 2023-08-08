@@ -135,12 +135,12 @@ In the following is listed which file creates which plot and which calculations 
 If you used different names for the files, in which you saved the calculated top 100 dataframe, 
 you need to change the input before you can ran the run code to create the plots. 
 
-- Create the scatter plot with regression of order two for the Top 100 and Top 10 as well as a comparison of the regressions 
+#### - Create the scatter plot with regression of order two for the Top 100 and Top 10 as well as a comparison of the regressions 
      ```bash
           ComparisonTop10AndTop100.py 
      ```
      Line of input: 14
-     #### Calculations: 
+     ##### Calculations: 
       1. Mean duration per year \
       2. Regression of order 2 with x = years and y = mean duration \
 
@@ -150,9 +150,9 @@ you need to change the input before you can ran the run code to create the plots
      ```
      Line of input:  13 
      #### Calculations: 
-      1. Mean duration of Top 100  per year \
-      2. Median of duration of Top 100  per year \
-      3. Variance of duration of Top 100 per year \
+      1. Mean duration of Top 100  per year 
+      2. Median of duration of Top 100  per year 
+      3. Variance of duration of Top 100 per year 
 
 - Create 
      ```bash
