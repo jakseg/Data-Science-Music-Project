@@ -89,13 +89,7 @@ To do that run
 ```bash 
      transformToDataSet.py 
 ```
-The resulting dataframe includes the following attributes: \\
-     - year \\
-     - month \\
-     - date \\
-     - rank \\
-     - artist \\
-     - song \\
+The resulting dataframe includes the following attributes: year, month, date, rank, artist, song 
 
 ### Step 4: Calculate the yearly/ monthly charts 
 
