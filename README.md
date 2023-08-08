@@ -83,6 +83,24 @@ date = [2013, 1, 26]
 
 ### Step 3: Calculate the yearly/ monthly charts and create a CSV file
 
+Since we want to calculate our results on a yearly or monthly basis, we need to
+calculate the top 100 for each year or month from the weekly Hot 100 Billboard songs. 
+Futhermore we restructure the scrapted dictonary into a dataframe, which we save 
+as a CSV file. 
+
+Therefore run the files 
+```bash
+calculation_of_top_100_per_year.py
+```
+and for each month of the years between 2005 and 2023 
+```bash
+calculation_of_top_100_per_year_month.py 
+```
+You have to run the files for each txt file you scraped before (different genres, times) once.
+To do this change in line 12 the name of the file in the data folder for which you want to calculate the top 100. 
+Additionally you have to modify in line 32 the name of the file in which you want to save your results. 
+If the file does not exists yet, it will be created by that. 
+
 ### Step 4: Add the duration
 To add the durations, you must first request a Bearer Token with your credentials:
 
