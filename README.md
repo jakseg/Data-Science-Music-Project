@@ -80,13 +80,27 @@ billboard_url = "https://www.billboard.com/charts/dance-electronic-songs/"
 date = [2013, 1, 26]
 ```
 
+### Step 3: Restructure scraped dictonary (saved in txt file) into dataframe saved as csv 
 
-### Step 3: Calculate the yearly/ monthly charts and create a CSV file
+To make the following steps easier we restructure a scraped dictonary, which includes the Top 100 songs each week of one chart 
+into  a dataframe. \
+
+To do that run
+```bash 
+     transformToDataSet.py 
+```
+The resulting dataframe includes the following attributes: 
+     - year 
+     - month
+     - date 
+     - rank 
+     - artist 
+     - song 
+
+### Step 4: Calculate the yearly/ monthly charts 
 
 Since we want to calculate our results on a yearly or monthly basis, we need to
 calculate the top 100 for each year or month from the weekly Hot 100 Billboard songs. 
-Futhermore we restructure the scrapted dictonary into a dataframe, which we save 
-as a CSV file. 
 
 Therefore run the files 
 ```bash
@@ -106,7 +120,7 @@ If the file does not exists yet, it will be created by that.
  2. Songs, which stayed longer in the chart were more successful and therefore add (52 - Number weeks, the song placed in the chart) * 101 
  3. the first 100 songs with the lowest total score are our Top 100 
 
-### Step 4: Add the duration
+### Step 5: Add the duration
 To add the durations, you must first request a Bearer Token with your credentials:
 
 ```bash
@@ -127,7 +141,7 @@ input_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
 output_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
 ```
 
-### Step 5: Create plots
+### Step 6: Create plots
 
 We have divided our code for the plots into several files so that it is organized and easier to read. By running each file you can create one to three plots. 
 In the following is listed which file creates which plot and which calculations are included. 
@@ -146,7 +160,7 @@ you need to change the input before you can ran the run code to create the plots
       1. Mean duration per year 
       2. Regression of order 2 with x = years and y = mean duration 
 
-- Create line graph with variance of duration of Top 100 per year and line graph with mean and median of durations of Top 100 per year 
+- #### Create line graph with variance of duration of Top 100 per year and line graph with mean and median of durations of Top 100 per year 
      ```bash
           Calculations_of_mean_median_variance_of_top_100.py 
      ```
@@ -156,14 +170,33 @@ you need to change the input before you can ran the run code to create the plots
       2. Median of duration of Top 100  per year 
       3. Variance of duration of Top 100 per year 
 
-- Create 
+- #### Create Zoom-In plot for the years 2005 until 2023 
      ```bash
-
+          Zoom_In_Between_Years_2005_2023_Top_100_monthly.py 
      ```
-     Line of input:  
-     Calculations: 
-      1. 
+     Lines of input: 15 and 16  
+     #### Calculations: 
+      1. Mean duration of Top 100 songs for each month for each year 
+      2. Mean duration of Top 100 songs for each year 
+      3. Regression of order 2 with x = years and y = mean duration for each year 
 
+- #### Create scatter plot with regression of order two for different genre 
+     ```bash
+          scatter_plot_for_every_genre.py 
+     ```
+     Lines of input:  94 - 99 
+     #### Calculations: 
+      1. Mean duration of Top 100 songs for each year for different genre 
+      3. Regression of order 2 with x = years and y = mean duration for each year for different genre 
+
+- #### Create plot to compare regressions of order two for different genres 
+     ```bash
+          comparison_different_genres.py 
+     ```
+     Lines of input:  83 - 88 
+     #### Calculations: 
+      1. Mean duration of Top 100 songs for each year for different genre 
+      3. Regression of order 2 with x = years and y = mean duration for each year for different genre 
 
 
 ## Authors and acknowledgment
