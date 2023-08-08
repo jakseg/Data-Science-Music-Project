@@ -99,7 +99,12 @@ calculation_of_top_100_per_year_month.py
 You have to run the files for each txt file you scraped before (different genres, times) once.
 To do this change in line 12 the name of the file in the data folder for which you want to calculate the top 100. 
 Additionally you have to modify in line 32 the name of the file in which you want to save your results. 
-If the file does not exists yet, it will be created by that. 
+If the file does not exists yet, it will be created by that.
+
+# Our calculation in steps 
+ 1. Sum the placings of a song for each year or month 
+ 2. Songs, which stayed longer in the chart were more successful and therefore add (52 - Number weeks, the song placed in the chart) * 101 
+ 3. the first 100 songs with the lowest total score are our Top 100 
 
 ### Step 4: Add the duration
 To add the durations, you must first request a Bearer Token with your credentials:
@@ -123,6 +128,40 @@ output_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
 ```
 
 ### Step 5: Create plots
+
+We have divided our code for the plots into several files so that it is organized and easier to read. By running each file you can create one to three plots. 
+In the following is listed which file creates which plot and which calculations are included. 
+
+If you used different names for the files, in which you saved the calculated top 100 dataframe, 
+you need to change the input before you can ran the run code to create the plots. 
+
+- Create the scatter plot with regression of order two for the Top 100 and Top 10 as well as a comparison of the regressions 
+     ```bash
+          ComparisonTop10AndTop100.py 
+     ```
+     Line of input: 14
+     Calculations: 
+      1. Mean duration per year 
+      2. Regression of order 2 with x = years and y = mean duration 
+
+- Create line graph with variance of duration of Top 100 per year and line graph with mean and median of durations of Top 100 per year 
+     ```bash
+          Calculations_of_mean_median_variance_of_top_100.py 
+     ```
+     Line of input:  13 
+     Calculations: 
+      1. Mean duration of Top 100  per year 
+      2. Median of duration of Top 100  per year 
+      3. Variance of duration of Top 100 per year
+
+- Create 
+     ```bash
+
+     ```
+     Line of input:  
+     Calculations: 
+      1. 
+
 
 
 ## Authors and acknowledgment
