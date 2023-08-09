@@ -11,8 +11,8 @@ import os
 CURRENT_DIR = os.path.dirname(__file__)
 
 #Change the directory to create new files
-input_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year.csv-")
-output_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year_with_duration")
+input_file = os.path.join(CURRENT_DIR, "Data/Top_100_R&B_songs_per_year.csv")
+output_file = os.path.join(CURRENT_DIR, "Data/Top_100_R&B_songs_per_year_with_duration.csv")
 
 
 duration_cache = {}
