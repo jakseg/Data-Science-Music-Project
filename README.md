@@ -44,7 +44,7 @@ And then run the command
 ```bash
 scrapy crawl billboard
 ```
-To run the scraper for the different charts you'll need to change the Parameter billboard_url and Date.
+To run the scraper for the different charts you'll need to change the Parameter billboard_url and Date in the file billboard_hot_100.
 
 BILLBOARD_URL AND DATE FOR RESPECTIVE GENRE
 
@@ -131,8 +131,8 @@ Insert your token in the file add_duration.py:
 
 To add the duration to different csv files you'll need to change the parameter "input_file" and "output_file".
 ```python
-input_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year.csv-")
-output_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year_with_duration")
+input_file = os.path.join(CURRENT_DIR, "Data/Top_100_R&B_songs_per_year.csv")
+output_file = os.path.join(CURRENT_DIR, "Data/Top_100_R&B_songs_per_year_with_duration.csv")
 ```
 
 ### Step 6: Create plots
@@ -146,7 +146,7 @@ you need to change the input before you can ran the run code to create the plots
 - #### Create the scatter plot with regression of order two for the Top 100 and Top 10 as well as a comparison of the regressions 
 
      ```bash
-          ComparisonTop10AndTop100.py 
+     python ComparisonTop10AndTop100.py 
      ```
      Line of input: 14
 
@@ -156,7 +156,7 @@ you need to change the input before you can ran the run code to create the plots
 
 - #### Create line graph with variance of duration of Top 100 per year and line graph with mean and median of durations of Top 100 per year 
      ```bash
-          Calculations_of_mean_median_variance_of_top_100.py 
+     python Calculations_of_mean_median_variance_of_top_100.py 
      ```
      Line of input:  13 
      #### Calculations: 
@@ -166,7 +166,7 @@ you need to change the input before you can ran the run code to create the plots
 
 - #### Create Zoom-In plot for the years 2005 until 2023 
      ```bash
-          Zoom_In_Between_Years_2005_2023_Top_100_monthly.py 
+     python Zoom_In_Between_Years_2005_2023_Top_100_monthly.py 
      ```
      Lines of input: 15 and 16  
      #### Calculations: 
@@ -176,7 +176,7 @@ you need to change the input before you can ran the run code to create the plots
 
 - #### Create scatter plot with regression of order two for different genre 
      ```bash
-          scatter_plot_for_every_genre.py 
+     python scatter_plot_for_every_genre.py 
      ```
      Lines of input:  94 - 99 
      #### Calculations: 
@@ -185,7 +185,7 @@ you need to change the input before you can ran the run code to create the plots
 
 - #### Create plot to compare regressions of order two for different genres 
      ```bash
-          comparison_different_genres.py 
+     python comparison_different_genres.py 
      ```
      Lines of input:  83 - 88 
      #### Calculations: 
