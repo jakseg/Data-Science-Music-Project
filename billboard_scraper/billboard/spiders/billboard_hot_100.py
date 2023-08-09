@@ -5,11 +5,13 @@ import json
 
 class BillboardHot100(scrapy.Spider):
     name = "billboard"
+    billboard_url = "https://www.billboard.com/charts/hot-100/"
+    date = [2000, 8, 4]
 
     def start_requests(self):
-        weeks = self.iterate_weeks(2000, 8, 4)
+        weeks = self.iterate_weeks(self.date)
         for week in weeks:
-            url = f"https://www.billboard.com/charts/hot-100/{week}"
+            url = f"{self.billboard_url}{week}"
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
@@ -41,7 +43,10 @@ class BillboardHot100(scrapy.Spider):
         with open(filename, 'x') as file:  # Use 'x' mode to create the file
             file.write(json.dumps(dictionary))
 
-    def iterate_weeks(self,start_year, start_month, start_day):
+    def iterate_weeks(self,date):
+        start_year = date[0]
+        start_month = date[1]
+        start_day = date [2]
         current_date = datetime.date(start_year, start_month, start_day)
         end_date = datetime.date.today()
 
@@ -52,5 +57,4 @@ class BillboardHot100(scrapy.Spider):
             print(current_date.strftime("%Y-%m-%d"))
             current_date += one_week
         return weeks
-
 
