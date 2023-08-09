@@ -87,7 +87,7 @@ into  a dataframe.
 
 To do that run
 ```bash 
-     transformToDataSet.py 
+python transformToDataSet.py 
 ```
 The resulting dataframe includes the following attributes: year, month, date, rank, artist, song 
 
@@ -98,11 +98,11 @@ calculate the top 100 for each year or month from the weekly Hot 100 Billboard s
 
 Therefore run the files 
 ```bash
-calculation_of_top_100_per_year.py
+python calculation_top_100_per_year.py
 ```
 and for each month of the years between 2005 and 2023 
 ```bash
-calculation_of_top_100_per_year_month.py 
+python calculation_of_top_100_per_year_month.py 
 ```
 You have to run the files for each txt file you scraped before (different genres, times) once.
 To do this change in line 12 the name of the file in the data folder for which you want to calculate the top 100. 

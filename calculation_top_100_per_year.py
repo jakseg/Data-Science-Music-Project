@@ -9,7 +9,7 @@ import os
 
 
 CURRENT_DIR = os.path.dirname(__file__)
-big_data = pd.read_csv(os.path.join(CURRENT_DIR, 'Data/Top_artists_weekly_as_Dataframe.csv'))
+big_data = pd.read_csv(os.path.join(CURRENT_DIR, 'Data/Top_100_artists_weekly_as_Dataframe.csv'))
 
 
 top_100_year_sum_of_ranks = big_data.groupby(['year', 'song', 'artist'])['rank'].sum().reset_index().rename(columns={'rank': 'sum_of_ranks'})

@@ -9,7 +9,7 @@ import os
 
 
 CURRENT_DIR = os.path.dirname(__file__)
-big_data = pd.read_csv(os.path.join(CURRENT_DIR, 'Data/Top_artists_weekly_as_Dataframe.csv'))
+big_data = pd.read_csv(os.path.join(CURRENT_DIR, 'Data/Top_100_artists_weekly_as_Dataframe.csv'))
 
 
 big_data = big_data[big_data['year'] >= 2005]
