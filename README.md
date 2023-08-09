@@ -131,8 +131,8 @@ Insert your token in the file add_duration.py:
 
 To add the duration to different csv files you'll need to change the parameter "input_file" and "output_file".
 ```python
-input_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
-output_file = os.path.join(CURRENT_DIR, "./-INSERT A VALID FILENAME.CSV-")
+input_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year.csv-")
+output_file = os.path.join(CURRENT_DIR, "./Top_100_country_songs_per_year_with_duration")
 ```
 
 ### Step 6: Create plots
